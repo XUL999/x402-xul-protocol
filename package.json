@@ -1,0 +1,48 @@
+{
+  "name": "x402-xul-protocol",
+  "version": "1.0.0",
+  "description": "X402 Payment Protocol for XUL Chain - Open source implementation for micropayments and API monetization",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write src",
+    "deploy:contracts": "hardhat run scripts/deploy.ts",
+    "verify:contracts": "hardhat verify"
+  },
+  "keywords": [
+    "x402",
+    "payment",
+    "protocol",
+    "xul-chain",
+    "blockchain",
+    "micropayment",
+    "web3",
+    "http-402"
+  ],
+  "author": "XUL Community",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.10.0",
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0",
+    "vitest": "^1.0.4",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "prettier": "^3.1.0",
+    "hardhat": "^2.19.4"
+  }
+}
