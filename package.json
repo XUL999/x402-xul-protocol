@@ -1,7 +1,7 @@
 {
   "name": "x402-xul-protocol",
   "version": "1.0.0",
-  "description": "X402 Payment Protocol for XUL Chain - Open source implementation for micropayments and API monetization",
+  "description": "🚀 Complete DeFi + AI Infrastructure for XUL Chain - Payment, DEX, zkML, DePIN, Translation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -15,11 +15,16 @@
     "compile": "hardhat compile",
     "clean": "hardhat clean",
     "check-network": "tsx scripts/check-network.ts",
-    "deploy:xul": "hardhat run scripts/deploy.ts --network xul-mainnet",
-    "deploy:testnet": "hardhat run scripts/deploy.ts --network xul-testnet",
-    "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
+    "deploy": "hardhat run scripts/deploy.ts --network xul-mainnet",
+    "deploy:advanced": "hardhat run scripts/deploy-advanced.ts --network xul-mainnet",
+    "deploy:translator": "hardhat run scripts/deploy-translator.ts --network xul-mainnet",
+    "deploy:all": "npm run deploy && npm run deploy:advanced && npm run deploy:translator",
     "verify": "hardhat verify --network xul-mainnet",
     "add-token": "hardhat run scripts/add-token.ts --network xul-mainnet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XUL999/x402-xul-protocol.git"
   },
   "keywords": [
     "x402",
@@ -27,12 +32,22 @@
     "protocol",
     "xul-chain",
     "blockchain",
-    "micropayment",
+    "defi",
+    "dex",
+    "zkml",
+    "depin",
+    "ai",
+    "translation",
     "web3",
+    "micropayment",
     "http-402"
   ],
   "author": "XUL Community",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XUL999/x402-xul-protocol/issues"
+  },
+  "homepage": "https://github.com/XUL999/x402-xul-protocol#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.0",
     "axios": "^1.6.2",
