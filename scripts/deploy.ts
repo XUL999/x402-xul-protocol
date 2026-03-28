@@ -4,16 +4,27 @@ async function main() {
   console.log("🚀 Deploying X402 Payment Processor to XUL Chain...\n");
 
   // Get deployer
-  const [deployer] = await ethers.getSigners();
-  console.log("📝 Deploying contracts with account:", deployer.address);
+  const signers = await ethers.getSigners();
+  const deployer = signers[0];
   
-  const balance = await ethers.provider.getBalance(deployer.address);
+  if (!deployer) {
+    throw new Error("No deployer found. Check your private key in .env");
+  }
+  
+  const deployerAddress = await deployer.getAddress();
+  console.log("📝 Deploying contracts with account:", deployerAddress);
+  
+  const balance = await ethers.provider.getBalance(deployerAddress);
   console.log("💰 Account balance:", ethers.formatEther(balance), "XUL\n");
 
   // Deploy Payment Processor
   console.log("📦 Deploying X402PaymentProcessor...");
   const X402PaymentProcessor = await ethers.getContractFactory("X402PaymentProcessor");
-  const paymentProcessor = await X402PaymentProcessor.deploy(deployer.address);
+  
+  // Deploy with owner address
+  const paymentProcessor = await X402PaymentProcessor.deploy(deployerAddress);
+  
+  console.log("⏳ Waiting for deployment confirmation...");
   await paymentProcessor.waitForDeployment();
 
   const processorAddress = await paymentProcessor.getAddress();
@@ -28,7 +39,7 @@ async function main() {
   console.log("\n📋 Deployment Summary:");
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
   console.log("   Payment Processor:", processorAddress);
-  console.log("   Owner:", deployer.address);
+  console.log("   Owner:", deployerAddress);
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
   // Save deployment info
@@ -38,7 +49,7 @@ async function main() {
     contracts: {
       X402PaymentProcessor: processorAddress,
     },
-    deployer: deployer.address,
+    deployer: deployerAddress,
     timestamp: new Date().toISOString(),
     explorer: `https://scan.rswl.ai/address/${processorAddress}`,
   };
@@ -49,17 +60,15 @@ async function main() {
   // Instructions for next steps
   console.log("\n🎯 Next Steps:");
   console.log("1. Add accepted payment tokens:");
-  console.log("   npx hardhat add-token --network xul-mainnet --token <TOKEN_ADDRESS>");
-  console.log("\n2. Authorize facilitators (optional):");
-  console.log("   npx hardhat authorize-facilitator --network xul-mainnet --facilitator <ADDRESS>");
-  console.log("\n3. Update your .env file:");
-  console.log(`   PAYMENT_TOKEN=${processorAddress}`);
-  console.log("\n4. Verify contract on explorer:");
-  console.log(`   npx hardhat verify --network xul-mainnet ${processorAddress} ${deployer.address}`);
+  console.log("   npx hardhat run scripts/add-token.ts --network xul-mainnet --token <TOKEN_ADDRESS>");
+  console.log("\n2. Update your .env file:");
+  console.log(`   PAYMENT_PROCESSOR_ADDRESS=${processorAddress}`);
+  console.log("\n3. Verify contract on explorer:");
+  console.log(`   npx hardhat verify --network xul-mainnet ${processorAddress} ${deployerAddress}`);
 
   return {
     paymentProcessor: processorAddress,
-    deployer: deployer.address,
+    deployer: deployerAddress,
   };
 }
 
