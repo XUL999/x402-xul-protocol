@@ -8,12 +8,17 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "vitest",
-    "test:coverage": "vitest --coverage",
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write src",
-    "deploy:contracts": "hardhat run scripts/deploy.ts",
-    "verify:contracts": "hardhat verify"
+    "deploy:xul": "hardhat run scripts/deploy.ts --network xul-mainnet",
+    "deploy:testnet": "hardhat run scripts/deploy.ts --network xul-testnet",
+    "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
+    "verify": "hardhat verify --network xul-mainnet",
+    "compile": "hardhat compile",
+    "clean": "hardhat clean",
+    "add-token": "hardhat run scripts/add-token.ts --network xul-mainnet"
   },
   "keywords": [
     "x402",
@@ -36,13 +41,25 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.10.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^4.2.0",
+    "@types/mocha": ">=9.1.0",
+    "chai": "^4.2.0",
+    "hardhat": "^2.19.4",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.0",
+    "typechain": "^8.3.0",
     "typescript": "^5.3.3",
     "tsx": "^4.7.0",
     "vitest": "^1.0.4",
     "eslint": "^8.55.0",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
-    "prettier": "^3.1.0",
-    "hardhat": "^2.19.4"
+    "prettier": "^3.1.0"
   }
 }
