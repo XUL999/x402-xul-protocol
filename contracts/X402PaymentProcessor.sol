@@ -9,8 +9,12 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
  * @title X402PaymentProcessor
  * @notice Payment processor for X402 protocol on XUL Chain
  * @dev Handles payment verification and settlement for API monetization
+ * Supports both ERC20 tokens and native XUL token (address(0))
  */
 contract X402PaymentProcessor is Ownable, ReentrancyGuard {
+    
+    // Special address for native token (XUL)
+    address public constant NATIVE_TOKEN = address(0);
     
     struct PaymentAuthorization {
         address from;
@@ -24,7 +28,7 @@ contract X402PaymentProcessor is Ownable, ReentrancyGuard {
     // Mapping of used nonces
     mapping(bytes32 => bool) public usedNonces;
     
-    // Mapping of accepted tokens
+    // Mapping of accepted tokens (ERC20 or native token)
     mapping(address => bool) public acceptedTokens;
     
     // Mapping of facilitator authorization
@@ -47,16 +51,13 @@ contract X402PaymentProcessor is Ownable, ReentrancyGuard {
     constructor(address initialOwner) Ownable(initialOwner) {}
     
     /**
-     * @notice Settle a payment
-     * @param token Address of the payment token
-     * @param auth Payment authorization data
-     * @param signature EIP-191 signature from payer
+     * @notice Settle a payment with ERC20 token or native token
      */
     function settlePayment(
         address token,
         PaymentAuthorization calldata auth,
         bytes calldata signature
-    ) external nonReentrant {
+    ) external payable nonReentrant {
         require(acceptedTokens[token], "Token not accepted");
         require(!usedNonces[auth.nonce], "Nonce already used");
         require(block.timestamp >= auth.validAfter, "Payment not yet valid");
@@ -71,38 +72,21 @@ contract X402PaymentProcessor is Ownable, ReentrancyGuard {
         usedNonces[auth.nonce] = true;
         
         // Transfer tokens
-        IERC20(token).transferFrom(auth.from, auth.to, auth.value);
-        
-        emit PaymentSettled(auth.from, auth.to, auth.value, auth.nonce, token);
-    }
-    
-    /**
-     * @notice Settle payment via facilitator
-     * @param token Address of the payment token
-     * @param auth Payment authorization data
-     * @param signature EIP-191 signature from payer
-     */
-    function settlePaymentViaFacilitator(
-        address token,
-        PaymentAuthorization calldata auth,
-        bytes calldata signature
-    ) external nonReentrant {
-        require(authorizedFacilitators[msg.sender], "Not authorized facilitator");
-        require(acceptedTokens[token], "Token not accepted");
-        require(!usedNonces[auth.nonce], "Nonce already used");
-        require(block.timestamp >= auth.validAfter, "Payment not yet valid");
-        require(block.timestamp <= auth.validBefore, "Payment expired");
-        
-        // Verify signature
-        bytes32 messageHash = _createMessageHash(auth);
-        address signer = _recoverSigner(messageHash, signature);
-        require(signer == auth.from, "Invalid signature");
-        
-        // Mark nonce as used
-        usedNonces[auth.nonce] = true;
-        
-        // Transfer tokens
-        IERC20(token).transferFrom(auth.from, auth.to, auth.value);
+        if (token == NATIVE_TOKEN) {
+            // Native token (XUL)
+            require(msg.value >= auth.value, "Insufficient native token sent");
+            (bool success, ) = payable(auth.to).call{value: auth.value}("");
+            require(success, "Native token transfer failed");
+            
+            // Refund excess
+            if (msg.value > auth.value) {
+                (bool refund, ) = payable(msg.sender).call{value: msg.value - auth.value}("");
+                require(refund, "Refund failed");
+            }
+        } else {
+            // ERC20 token
+            IERC20(token).transferFrom(auth.from, auth.to, auth.value);
+        }
         
         emit PaymentSettled(auth.from, auth.to, auth.value, auth.nonce, token);
     }
@@ -128,7 +112,7 @@ contract X402PaymentProcessor is Ownable, ReentrancyGuard {
     }
     
     /**
-     * @notice Add accepted token
+     * @notice Add accepted token (use address(0) for native token)
      */
     function addAcceptedToken(address token) external onlyOwner {
         acceptedTokens[token] = true;
@@ -189,6 +173,11 @@ contract X402PaymentProcessor is Ownable, ReentrancyGuard {
         );
         return ECDSA.recover(ethSignedMessageHash, signature);
     }
+    
+    /**
+     * @notice Allow contract to receive native tokens
+     */
+    receive() external payable {}
 }
 
 // ECDSA library import
