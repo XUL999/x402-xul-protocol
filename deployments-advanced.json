@@ -1,0 +1,13 @@
+{
+  "network": "XUL Chain",
+  "chainId": 12309,
+  "timestamp": "2026-03-28T09:04:39.550Z",
+  "deployer": "0xC2F803f72033210718dbF150301b5A88Bb2C12CC",
+  "contracts": {
+    "XULSmartWallet": "0x47887c4b47E9CE70d38B58207073b286fDb34C86",
+    "XULAIAgentRegistry": "0xa1cD6f5547106903f24E1D69ADE4e9fc45E9c5f4",
+    "XULzkMLVerifier": "0x3477b6D7694a482117f21adD3eA5460b9f3Cc0e8",
+    "XULDePIN": "0x060e5a6c96B8D78bF4Ac6eF0c03cBfa8B944D8ec",
+    "XULTranslator": "0xA0E46D446ae01f0E32b327cB4ef928aB7b339A5b"
+  }
+}

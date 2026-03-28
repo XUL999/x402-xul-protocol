@@ -34,7 +34,7 @@
   "author": "XUL Community",
   "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^5.6.1",
+    "@openzeppelin/contracts": "^4.9.0",
     "axios": "^1.6.2",
     "dotenv": "^16.3.1",
     "ethers": "^6.10.0",
