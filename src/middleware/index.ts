@@ -67,7 +67,7 @@ export function createPaymentMiddleware(config: X402Config) {
  * Default X402 middleware
  */
 export const x402Middleware = createPaymentMiddleware({
-  chainId: 'xul-mainnet',
-  rpcUrl: 'https://rpc.xul.chain',
+  chainId: '12309',
+  rpcUrl: 'https://pro.rswl.ai',
   paymentToken: '0x0000000000000000000000000000000000000000', // Replace with actual token
 });

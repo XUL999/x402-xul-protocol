@@ -47,8 +47,8 @@ pnpm dev
 import { X402Server } from './src/server';
 
 const server = new X402Server({
-  chainId: 'xul-mainnet',
-  rpcUrl: 'https://rpc.xul.chain',
+  chainId: '12309',
+  rpcUrl: 'https://pro.rswl.ai',
   paymentToken: '0x...' // XUL token address
 });
 

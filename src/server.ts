@@ -6,8 +6,8 @@ import { X402Server, x402Middleware, createPaymentMiddleware } from './index';
 
 // Configuration for XUL Chain
 const config = {
-  chainId: 'xul-mainnet',
-  rpcUrl: process.env.XUL_RPC_URL || 'https://rpc.xul.chain',
+  chainId: process.env.XUL_CHAIN_ID || '12309',
+  rpcUrl: process.env.XUL_RPC_URL || 'https://pro.rswl.ai',
   paymentToken: process.env.PAYMENT_TOKEN || '0x0000000000000000000000000000000000000000',
   minPaymentAmount: process.env.MIN_PAYMENT_AMOUNT || '1000000000000000000',
   facilitatorUrl: process.env.FACILITATOR_URL,

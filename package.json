@@ -12,12 +12,13 @@
     "test:coverage": "hardhat coverage",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write src",
+    "compile": "hardhat compile",
+    "clean": "hardhat clean",
+    "check-network": "tsx scripts/check-network.ts",
     "deploy:xul": "hardhat run scripts/deploy.ts --network xul-mainnet",
     "deploy:testnet": "hardhat run scripts/deploy.ts --network xul-testnet",
     "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
     "verify": "hardhat verify --network xul-mainnet",
-    "compile": "hardhat compile",
-    "clean": "hardhat clean",
     "add-token": "hardhat run scripts/add-token.ts --network xul-mainnet"
   },
   "keywords": [

@@ -14,16 +14,16 @@ const config: HardhatUserConfig = {
   networks: {
     // XUL Chain Mainnet
     "xul-mainnet": {
-      url: process.env.XUL_RPC_URL || "https://rpc.xul.chain",
-      chainId: parseInt(process.env.XUL_CHAIN_ID || "1"),
+      url: process.env.XUL_RPC_URL || "https://pro.rswl.ai",
+      chainId: parseInt(process.env.XUL_CHAIN_ID || "12309"),
       accounts: process.env.DEPLOYER_PRIVATE_KEY 
         ? [process.env.DEPLOYER_PRIVATE_KEY]
         : [],
     },
     // XUL Chain Testnet (if available)
     "xul-testnet": {
-      url: process.env.XUL_TESTNET_RPC_URL || "https://testnet-rpc.xul.chain",
-      chainId: parseInt(process.env.XUL_TESTNET_CHAIN_ID || "2"),
+      url: process.env.XUL_TESTNET_RPC_URL || "https://testnet.pro.rswl.ai",
+      chainId: parseInt(process.env.XUL_TESTNET_CHAIN_ID || "12310"),
       accounts: process.env.DEPLOYER_PRIVATE_KEY 
         ? [process.env.DEPLOYER_PRIVATE_KEY]
         : [],
@@ -38,7 +38,7 @@ const config: HardhatUserConfig = {
       // Custom network for XUL Chain
       customChain: {
         network: "xul-mainnet",
-        chainId: parseInt(process.env.XUL_CHAIN_ID || "1"),
+        chainId: parseInt(process.env.XUL_CHAIN_ID || "12309"),
         urls: {
           apiURL: "https://scan.rswl.ai/api",
           browserURL: "https://scan.rswl.ai"
@@ -48,7 +48,7 @@ const config: HardhatUserConfig = {
     customChains: [
       {
         network: "xul-mainnet",
-        chainId: parseInt(process.env.XUL_CHAIN_ID || "1"),
+        chainId: parseInt(process.env.XUL_CHAIN_ID || "12309"),
         urls: {
           apiURL: "https://scan.rswl.ai/api",
           browserURL: "https://scan.rswl.ai"
