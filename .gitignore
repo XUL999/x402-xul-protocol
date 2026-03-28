@@ -1,43 +1,38 @@
 # Dependencies
 node_modules/
-.pnpm-store/
+.pnp
+.pnp.js
 
 # Build
+artifacts/
+cache/
+typechain-types/
 dist/
-build/
-*.tsbuildinfo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Environment
 .env
 .env.local
 .env.*.local
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-
 # Logs
-logs/
 *.log
 npm-debug.log*
-pnpm-debug.log*
 
-# Testing
+# Coverage
 coverage/
-.nyc_output/
 
-# Cache
-.cache/
-.parcel-cache/
+# Misc
+*.tsbuildinfo
 
-# Temporary
-tmp/
-temp/
-*.tmp
+# Hardhat
+hardhat-network-fork.json
