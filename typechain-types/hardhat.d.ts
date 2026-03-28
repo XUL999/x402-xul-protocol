@@ -62,9 +62,29 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.WUSDT__factory>;
     getContractFactory(
+      name: "WXUL",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.WXUL__factory>;
+    getContractFactory(
       name: "X402PaymentProcessor",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.X402PaymentProcessor__factory>;
+    getContractFactory(
+      name: "IERC20",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20__factory>;
+    getContractFactory(
+      name: "XULSwapFactory",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.XULSwapFactory__factory>;
+    getContractFactory(
+      name: "XULSwapPair",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.XULSwapPair__factory>;
+    getContractFactory(
+      name: "XULSwapRouter",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.XULSwapRouter__factory>;
 
     getContractAt(
       name: "Ownable",
@@ -127,10 +147,35 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.WUSDT>;
     getContractAt(
+      name: "WXUL",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.WXUL>;
+    getContractAt(
       name: "X402PaymentProcessor",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.X402PaymentProcessor>;
+    getContractAt(
+      name: "IERC20",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20>;
+    getContractAt(
+      name: "XULSwapFactory",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.XULSwapFactory>;
+    getContractAt(
+      name: "XULSwapPair",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.XULSwapPair>;
+    getContractAt(
+      name: "XULSwapRouter",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.XULSwapRouter>;
 
     deployContract(
       name: "Ownable",
@@ -181,9 +226,29 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.WUSDT>;
     deployContract(
+      name: "WXUL",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.WXUL>;
+    deployContract(
       name: "X402PaymentProcessor",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.X402PaymentProcessor>;
+    deployContract(
+      name: "IERC20",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC20>;
+    deployContract(
+      name: "XULSwapFactory",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.XULSwapFactory>;
+    deployContract(
+      name: "XULSwapPair",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.XULSwapPair>;
+    deployContract(
+      name: "XULSwapRouter",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.XULSwapRouter>;
 
     deployContract(
       name: "Ownable",
@@ -246,10 +311,35 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.WUSDT>;
     deployContract(
+      name: "WXUL",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.WXUL>;
+    deployContract(
       name: "X402PaymentProcessor",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.X402PaymentProcessor>;
+    deployContract(
+      name: "IERC20",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC20>;
+    deployContract(
+      name: "XULSwapFactory",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.XULSwapFactory>;
+    deployContract(
+      name: "XULSwapPair",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.XULSwapPair>;
+    deployContract(
+      name: "XULSwapRouter",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.XULSwapRouter>;
 
     // default types
     getContractFactory(

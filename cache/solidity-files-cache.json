@@ -498,6 +498,120 @@
       "artifacts": [
         "WETH"
       ]
+    },
+    "C:\\Users\\31230\\.openclaw\\workspace-xul\\x402-xul\\contracts\\WXUL.sol": {
+      "lastModificationDate": 1774683000946,
+      "contentHash": "06fd6882dc19be2c1360a2454c017e29",
+      "sourceName": "contracts/WXUL.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "WXUL"
+      ]
+    },
+    "C:\\Users\\31230\\.openclaw\\workspace-xul\\x402-xul\\contracts\\XULSwapFactory.sol": {
+      "lastModificationDate": 1774683238721,
+      "contentHash": "26a217b9870d07292e45620a31e91c64",
+      "sourceName": "contracts/XULSwapFactory.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./WXUL.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC20",
+        "XULSwapFactory",
+        "XULSwapPair"
+      ]
+    },
+    "C:\\Users\\31230\\.openclaw\\workspace-xul\\x402-xul\\contracts\\XULSwapRouter.sol": {
+      "lastModificationDate": 1774683221532,
+      "contentHash": "1dd6000f46537cdd43ac4a1cfb1acd8a",
+      "sourceName": "contracts/XULSwapRouter.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./XULSwapFactory.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "XULSwapRouter"
+      ]
     }
   }
 }

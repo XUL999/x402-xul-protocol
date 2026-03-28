@@ -4,21 +4,34 @@
 
 ---
 
-## 📋 合约清单与部署状态
+## 📋 已部署合约总览
 
-### ✅ 已部署合约（全部已部署）
+### 支付系统（X402）
 
-| # | 合约名称 | 文件 | 地址 | 测试 |
-|---|---------|------|------|------|
-| 1 | **X402PaymentProcessor** | `X402PaymentProcessor.sol` | [`0x04Ae399878a2bCE9E9e196C14C3029EFc7dF00cF`](https://scan.rswl.ai/address/0x04Ae399878a2bCE9E9e196C14C3029EFc7dF00cF) | ✅ 15 个测试通过 |
-| 2 | **WUSDT** | `WUSDT.sol` | [`0x79be35563947b6D194b3f0A22c6D4a10F7Cba5B8`](https://scan.rswl.ai/address/0x79be35563947b6D194b3f0A22c6D4a10F7Cba5B8) | ✅ 6 个测试通过 |
-| 3 | **WUSDC** | `WUSDC.sol` | [`0x41Bf8fACF9af7aB03EF4dbeD5239699d2FB2a6b8`](https://scan.rswl.ai/address/0x41Bf8fACF9af7aB03EF4dbeD5239699d2FB2a6b8) | ✅ 3 个测试通过 |
-| 4 | **WBTC** | `WBTC.sol` | [`0x1A39DB2188Bf238293BE9c4706C0119cA271266f`](https://scan.rswl.ai/address/0x1A39DB2188Bf238293BE9c4706C0119cA271266f) | ✅ 3 个测试通过 |
-| 5 | **WETH** | `WETH.sol` | [`0x3dE47F28888D90BACcD7f40D068653104A60B70F`](https://scan.rswl.ai/address/0x3dE47F28888D90BACcD7f40D068653104A60B70F) | ✅ 3 个测试通过 |
+| 合约 | 地址 | 浏览器 |
+|------|------|--------|
+| **X402PaymentProcessor** | `0x04Ae399878a2bCE9E9e196C14C3029EFc7dF00cF` | [查看](https://scan.rswl.ai/address/0x04Ae399878a2bCE9E9e196C14C3029EFc7dF00cF) |
+
+### 包装代币（跨链桥）
+
+| 代币 | 地址 | 浏览器 |
+|------|------|--------|
+| **WUSDT** | `0x79be35563947b6D194b3f0A22c6D4a10F7Cba5B8` | [查看](https://scan.rswl.ai/address/0x79be35563947b6D194b3f0A22c6D4a10F7Cba5B8) |
+| **WUSDC** | `0x41Bf8fACF9af7aB03EF4dbeD5239699d2FB2a6b8` | [查看](https://scan.rswl.ai/address/0x41Bf8fACF9af7aB03EF4dbeD5239699d2FB2a6b8) |
+| **WBTC** | `0x1A39DB2188Bf238293BE9c4706C0119cA271266f` | [查看](https://scan.rswl.ai/address/0x1A39DB2188Bf238293BE9c4706C0119cA271266f) |
+| **WETH** | `0x3dE47F28888D90BACcD7f40D068653104A60B70F` | [查看](https://scan.rswl.ai/address/0x3dE47F28888D90BACcD7f40D068653104A60B70F) |
+
+### DEX（去中心化交易所）
+
+| 合约 | 地址 | 浏览器 |
+|------|------|--------|
+| **WXUL** | `0xf6c896656d8f05dC287187749ccEE04FE5589275` | [查看](https://scan.rswl.ai/address/0xf6c896656d8f05dC287187749ccEE04FE5589275) |
+| **XULSwapFactory** | `0x0A7e1C43582D9b617360F279105Febb9236664A9` | [查看](https://scan.rswl.ai/address/0x0A7e1C43582D9b617360F279105Febb9236664A9) |
+| **XULSwapRouter** | `0x9fE62F9F607feFA5806b8B36D174550Aa755917d` | [查看](https://scan.rswl.ai/address/0x9fE62F9F607feFA5806b8B36D174550Aa755917d) |
 
 ---
 
-## 🧪 测试覆盖
+## 🧪 测试状态
 
 | 测试文件 | 测试数量 | 状态 |
 |---------|---------|------|
@@ -28,54 +41,40 @@
 
 ---
 
-## 📦 本地合约检查
-
-```
-contracts/
-├── X402PaymentProcessor.sol  ✅ 已部署
-├── WUSDT.sol                 ✅ 已部署
-├── WUSDC.sol                 ✅ 已部署
-├── WBTC.sol                  ✅ 已部署
-└── WETH.sol                  ✅ 已部署
-```
-
-**结论：本地所有智能合约已全部部署到 XUL Chain！**
-
----
-
 ## 💰 支持的支付代币
 
-| 代币 | 类型 | 地址 | 小数位 |
-|------|------|------|--------|
-| **XUL** | 原生代币 | `0x0000000000000000000000000000000000000000` | 18 |
-| **WUSDT** | 包装代币 | `0x79be35563947b6D194b3f0A22c6D4a10F7Cba5B8` | 6 |
-| **WUSDC** | 包装代币 | `0x41Bf8fACF9af7aB03EF4dbeD5239699d2FB2a6b8` | 6 |
-| **WBTC** | 包装代币 | `0x1A39DB2188Bf238293BE9c4706C0119cA271266f` | 8 |
-| **WETH** | 包装代币 | `0x3dE47F28888D90BACcD7f40D068653104A60B70F` | 18 |
+| 代币 | 类型 | 地址 |
+|------|------|------|
+| **XUL** | 原生代币 | `0x0000000000000000000000000000000000000000` |
+| **WXUL** | 包装代币 | `0xf6c896656d8f05dC287187749ccEE04FE5589275` |
+| **WUSDT** | 包装代币 | `0x79be35563947b6D194b3f0A22c6D4a10F7Cba5B8` |
+| **WUSDC** | 包装代币 | `0x41Bf8fACF9af7aB03EF4dbeD5239699d2FB2a6b8` |
+| **WBTC** | 包装代币 | `0x1A39DB2188Bf238293BE9c4706C0119cA271266f` |
+| **WETH** | 包装代币 | `0x3dE47F28888D90BACcD7f40D068653104A60B70F` |
 
 ---
 
 ## 📊 部署统计
 
-- **总合约数：** 5
-- **已部署：** 5 (100%)
+- **总合约数：** 8
+- **已部署：** 8 (100%)
 - **测试通过率：** 100% (28/28)
-- **Gas 费用总计：** ~0.0036 XUL
 
 ---
 
-## 🔗 快速链接
+## 🎯 下一步计划
 
-- **GitHub：** https://github.com/XUL999/x402-xul-protocol
-- **区块浏览器：** https://scan.rswl.ai
-- **部署记录：** [DEPLOYMENTS.md](./DEPLOYMENTS.md)
+### 钱包开发
+- [ ] 移动端钱包应用
+- [ ] Web 钱包界面
+- [ ] 浏览器插件
 
----
+### DEX 功能
+- [ ] 创建交易对
+- [ ] 添加流动性
+- [ ] 代币交换界面
 
-## ✅ 状态总结
-
-**所有智能合约已部署完成并通过测试！**
-
-- ✅ 5/5 合约已部署
-- ✅ 28/28 测试通过
-- ✅ 5 种支付代币已支持
+### IMAI 服务
+- [ ] AI 聊天功能
+- [ ] 风险评估系统
+- [ ] 市场分析工具
