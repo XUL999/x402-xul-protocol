@@ -1,0 +1,12 @@
+{
+  "network": "XUL Chain",
+  "chainId": 12309,
+  "timestamp": "2026-03-29T08:19:53.713Z",
+  "deployer": "0xC2F803f72033210718dbF150301b5A88Bb2C12CC",
+  "contracts": {
+    "WXULV2": "0x3111Baf82B89becc5B636d10fdeA1d2697F209F4",
+    "XULSwapFactory": "0x9466113e4b78b66FB2863e1C36670D47EA276Ca9",
+    "XULSwapRouterV2": "0x1AAdFfA792e71D1e75FB61CA53E6949352B5e18B",
+    "X402PaymentProcessorV2": "0x1D754Fb5A8D1db7B83DDb2D6Fb8fD1365C8A6263"
+  }
+}
