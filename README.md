@@ -70,10 +70,22 @@
 
 ## 📋 已部署合约
 
+### 🎉 V2 合约 (安全升级版)
+
+> ✅ 经过安全审计，修复了 V1 中的安全漏洞
+
+| 合约 | 地址 | 安全特性 |
+|------|------|----------|
+| **WXULV2** | [`0x3111...`](https://scan.rswl.ai/address/0x3111Baf82B89becc5B636d10fdeA1d2697F209F4) | 黑名单、限额、暂停 |
+| **XULSwapRouterV2** | [`0x1AAd...`](https://scan.rswl.ai/address/0x1AAdFfA792e71D1e75FB61CA53E6949352B5e18B) | Deadline、滑点保护、暂停 |
+| **X402PaymentProcessorV2** | [`0x1D75...`](https://scan.rswl.ai/address/0x1D754Fb5A8D1db7B83DDb2D6Fb8fD1365C8A6263) | EIP-712、Nonce检查、暂停 |
+| **XULSwapFactoryV2** | [`0x9466...`](https://scan.rswl.ai/address/0x9466113e4b78b66FB2863e1C36670D47EA276Ca9) | 基础工厂 |
+
+### 📦 V1 合约 (原有版)
+
 | 合约 | 地址 | 功能 |
 |------|------|------|
 | X402PaymentProcessor | [`0x04Ae...`](https://scan.rswl.ai/address/0x04Ae399878a2bCE9E9e196C14C3029EFc7dF00cF) | 支付处理器 |
-| XULSwap Factory | [`0x0A7e...`](https://scan.rswl.ai/address/0x0A7e1C43582D9b617360F279105Febb9236664A9) | DEX 工厂 |
 | XULSwap Router | [`0x9fE6...`](https://scan.rswl.ai/address/0x9fE62F9F607feFA5806b8B36D174550Aa755917d) | DEX 路由 |
 | WXUL | [`0xf6c8...`](https://scan.rswl.ai/address/0xf6c896656d8f05dC287187749ccEE04FE5589275) | 包装 XUL |
 | WUSDT | [`0x79be...`](https://scan.rswl.ai/address/0x79be35563947b6D194b3f0A22c6D4a10F7Cba5B8) | 包装 USDT |
@@ -182,9 +194,9 @@ npx hardhat run scripts/add-native-token.ts --network xul-mainnet
 
 ## 📖 文档
 
-- [部署指南](./docs/DEPLOYMENT.md)
-- [API 文档](./docs/API.md)
-- [高级功能](./ADVANCED_FEATURES.md)
+- [合约文档](./CONTRACTS.md) - 完整合约使用指南
+- [审计报告](./AUDIT_REPORT.md) - 安全审计详情
+- [升级指南](./UPGRADE_GUIDE.md) - V1 → V2 升级说明
 - [部署记录](./DEPLOYMENTS.md)
 
 ---
